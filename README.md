@@ -22,3 +22,10 @@ parrot OS.
 debian 9. 
 debian 10.
 windows.
+
+# como instalar
+git clone https://github.com/m4n3qun1/SSPC
+cd SSPC
+chmod +x *
+bash setup.sh
+
