@@ -5,8 +5,8 @@
 * desenvolvi para ininiciantes
 * é uma script que automatiza o aircrack.
 * e expliquei passo a passo o que cada linha da script do aircrack iria fazer 
-* mas tambem serve para profissionais.
-* pois facilita muito.
+* mas tambem serve para profissionais,
+pois facilita muito.
 
 # dependencias
 * aircrack-ng
@@ -26,6 +26,6 @@
 # como instalar
 * git clone https://github.com/m4n3qun1/SSPC
 * cd SSPC
-* chmod +x *
+* chmod +x 
 * bash setup.sh
 
