@@ -29,3 +29,11 @@ pois facilita muito.
 * chmod +x 
 * bash setup.sh
 
+## ATUALIZAÇÃO 23/08/20
+**bugs removidos
+**melhoria nas funçôes
+**adicionado wordlist infinita
+**Otimização de codigo
+**muito mais rapido
+*em uma GPU chipset intel family e uma CPU intel dual core 2.1 GHZ o ataque de bruteforce no wifi foi a 12 MB por segundo e 68 mil senhas testadas por minuto!!!!!!
+
