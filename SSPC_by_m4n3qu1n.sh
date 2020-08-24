@@ -78,17 +78,10 @@ sleep 2
 
 airodump-ng $monitor
 
-
-echo "por favor preste atençao na rede que voce gostaria de 'hackar' a tabela 'beacons' ela é muito importante quanto melhor sua placa de rede ou adaptador melhor e mais rapido vai capturar 'beacons'"
-echo "'beacons' são pequenos sinais que trazem algumas informaçoes da rede muito pequenas mas em grandes contidades é possivel obter um handshake"
-echo "'handshake' 'aperto de mao' digamos que e um 'token' criado quando alguem acessa a rede"
-echo "voce pode esperar o 'airodump-ng' capturar o 'handshake' sozinho ou abrir um segundo terminal e usar o 'aireplay-ng' e apenas uma questao e paciencia"
+echo "voce pode esperar o 'airodump-ng' capturar o 'handshake' sozinho ou abrir um segundo terminal e usar o 'aireplay-ng'"
 echo "vamos continuar com 'airodump-ng' para capturar trafego de rede"
-echo "MINIMO RECOMENDADO:20 beacons"
-echo "QUANDO ACHAR QUE JA TEM 'BEACONS' O SUFICIENTE NA REDE QUE DESEJA INVADIR PRESSIONE (ctrl + c)"
 echo "OBS: olhe na parte superior esquerda da rede que voce deseja invadir se aparecer 'handshake' ou algo voce ja conseguiu obter o handshake dessa rede"
-echo "CASO QUEIRA USAR 'aireplay-ng' abra a script  'aireplay-ng.sh' e iniciara um guia para usar o aireplay-ng (LEMBRE-SE USE O AIREPLAY APENAS QUANDOO TIVER 20 BEACONS NO MINIMO NO AIRODUMP-NG E NA REDE QUE DESEJA INVADIR)"
-echo "Leia tudo e aguarde 40 segundos para continuar..."
+echo "abre 1 segundo terminal e use o aireplay.sh"
 
  sleep 40
  
@@ -112,8 +105,8 @@ echo "localize algo parecido com a extensao 'pcap' no final do nome"
 echo "esse provalvelmente é o 'handshake' caso há varios 'handshakes' nao se preocupe sabera qaul é o certo"
 echo "vamos continuar com 'aircrack-ng'. ai esta a cereja do bolo hehe. ele é quem vai descriptografar a senha com as informaçoes que voce obteve com 'airodump-ng'."
 
-echo "lembre-se de onde esta salvo o 'handshake' e lembresse do 'BSSID' sabera qual é confio em voce"
-echo "ee tambem voce necessitara de uma wordlist ou caso desejo nossa wordlist infinita não. pode baixar uma na internet ou criar personalizadas com elpscryk.py ou crunch ou CUPP" 
+echo "lembresse do 'BSSID' sabera qual é confio em voce"
+echo "ee tambem voce necessitara de uma wordlist precisa baixar uma na internet ou criar personalizadas com elpscryk.py ou crunch ou CUPP ou caso deseje  nossa WORDLIST INFINITA!!(recomendado) " 
 
 sleep 10
 
